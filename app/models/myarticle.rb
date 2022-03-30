@@ -1,0 +1,2 @@
+class Myarticle < ApplicationRecord
+end

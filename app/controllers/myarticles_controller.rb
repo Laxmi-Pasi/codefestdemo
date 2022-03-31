@@ -11,7 +11,7 @@ class MyarticlesController < ApplicationController
   end
 
   def create
-    @article = Myarticle.new(title: params[:title],body: params[:body],release_date: params[:release_date], avatar: params[:avatar])
+    @article = Myarticle.new(myarticle_params)
 
     if @article.save
       #result = { type: 'Success', data: ActiveModelSerializers::SerializableResource.new(@article, each_serializer: ArticleSerializer), message: ["user created successfully"],status: 200}
@@ -45,6 +45,10 @@ class MyarticlesController < ApplicationController
 
   private
   
+    def myarticle_params
+      params.require(:myarticle).permit(:title, :body, :release_date, :avatar)
+    end
+
     def set_api_v1_article
       @article = Myarticle.find(params[:id])
     end

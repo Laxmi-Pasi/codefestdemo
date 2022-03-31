@@ -12,13 +12,13 @@ class MyarticlesController < ApplicationController
 
   def create
     @article = Myarticle.new(myarticle_params)
-
-    if @article.save
-      #result = { type: 'Success', data: ActiveModelSerializers::SerializableResource.new(@article, each_serializer: ArticleSerializer), message: ["user created successfully"],status: 200}
-      render json: @article
-    else
-      render json: @article.errors, status: :unprocessable_entity
-    end
+    @article.save
+    # if @article.save
+    #   #result = { type: 'Success', data: ActiveModelSerializers::SerializableResource.new(@article, each_serializer: ArticleSerializer), message: ["user created successfully"],status: 200}
+    #   #render json: @article
+    # else
+    #   render json: @article.errors, status: :unprocessable_entity
+    # end
   end
 
   def update

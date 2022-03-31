@@ -11,7 +11,7 @@ class MyarticlesController < ApplicationController
   end
 
   def create
-    @article = Myarticle.new(title: params[:title],body: params[:body],release_date: params[:release_date])
+    @article = Myarticle.new(title: params[:title],body: params[:body],release_date: params[:release_date], avatar: params[:avatar])
 
     if @article.save
       #result = { type: 'Success', data: ActiveModelSerializers::SerializableResource.new(@article, each_serializer: ArticleSerializer), message: ["user created successfully"],status: 200}
